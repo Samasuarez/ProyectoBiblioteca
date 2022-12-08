@@ -1,0 +1,75 @@
+<!DOCTYPE html5>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Biblioteca para todos</title>
+  </head>
+  <body>
+    <main>
+      <div style="display: flex">
+        <div class="bgImgContacto" style="height: 100vh; width: 100%"></div>
+        <div
+          style="
+            display: flex;
+            height: 100vh;
+            width: 700px;
+            background-color: white;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgb(0 0 0 / 50%);
+          "
+        >
+          <div class="card">
+            <form
+              id="formLogin"
+              action=""
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+              "
+            >
+              <h2 style="text-align: center">
+                Bienvenido! <br />
+                Ingresa tus datos
+              </h2>
+              <input
+                type="email"
+                placeholder="ingresa tu email"
+                id="email"
+                required
+              />
+              <input
+                type="password"
+                placeholder="ingresa tu contraseña"
+                id="password"
+                required
+              />
+              <p
+                id="alertaLogin"
+                style="display: none; color: red; font-weight: bold"
+              ></p>
+              <input
+                id="btnConfirmar"
+                type="submit"
+                value="Ingresar"
+                style="cursor: pointer; margin: 20px 70px"
+              />
+            </form>
+
+            <h3>¿Primera vez en Bibliosama?</h3>
+            <a id="btnRegistro" href="registro2.html" style="text-align: center"
+              >Registrate</a
+            >
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Recomendado -->
+    <script src="../js/ingreso.js"></script>
+  </body>
+</html>

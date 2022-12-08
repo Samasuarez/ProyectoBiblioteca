@@ -1,0 +1,138 @@
+main {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbarStyles {
+  background-color: blanchedalmond;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+.bgImgContacto {
+  min-height: 100%;
+  background-image: url("../img/biblioteca.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none !important;
+}
+.bgImgRegistro {
+  min-height: 100%;
+  background-image: url("../img/imgPrincipal.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none !important;
+}
+.flex {
+  display: flex;
+  justify-content: center;
+}
+.btnComprar {
+  display: flex;
+  flex-direction: row;
+}
+.btnBusqueda {
+  display: flex;
+}
+.contenedor {
+  display: inline-grid;
+  grid-auto-columns: auto;
+  margin: 130px auto 0;
+  grid-template-areas: "card2 card2 card2 card2 card2  ";
+}
+.card2 {
+  position: relative;
+  margin: 10px;
+  width: 200px;
+  height: 350px;
+  overflow: hidden;
+  border: 1px solid darkgrey;
+  border-radius: 8px;
+}
+
+.cardLibro{
+  width: 250px;
+  height: 400px;
+  margin: 10px;
+  /* width: 200px; */
+  /* height: 460px; */
+  /* padding: 5px; */
+}
+.btnCardLibro {
+  position: absolute;
+  width: 100%;
+  bottom: 5px;
+}
+.textoFormu {
+  display: flex;
+}
+/* .card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+} */
+
+form {
+  width: 270px;
+  /* border: 1px solid; */
+  padding: 20px;
+  /* background-color: rgb(47, 79, 79); */
+  opacity: 0.6;
+  /* border-radius: 8px; */
+  /* margin: calc(50vh - 220px); */
+}
+
+.card form input {
+  margin-top: 15px;
+  font-size: 1.3rem;
+}
+
+#mensaje {
+  font-style: italic;
+  font-size: 1.3rem;
+}
+.error {
+  color: red;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid red;
+}
+
+.bg-carrito {
+  background-color: rgb(238 238 238);
+  padding: 50px 100px;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.contenedorCarrito {
+  min-height: 200px;
+  background-color: white;
+  padding: 30px;
+  margin-top: 50px;
+}
+
+.tarjetaCarrito {
+  width: 100%;
+  height: 60px;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+  padding: 50px 0;
+}
+
+.tarjetaCarrito p {
+  margin: 0;
+  padding: 0 10px;
+}
+
+.contenedorCarrito h2 {
+  border-bottom: 1px solid lightgray;
+  margin: 0;
+  padding: 10px 0;
+}
