@@ -281,8 +281,6 @@ function crearHtml(arr) {
 
 crearHtml(productos);
 
-const nombreUsuario = document.getElementById("nombreUsuario");
-nombreUsuario.innerHTML = userLogin.email;
 
 productos.forEach((el) => {
   const { id, pdf } = el;
