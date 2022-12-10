@@ -12,20 +12,63 @@
   </head>
   <body>
     <main>
-      <div class="card">
-        <form id="formRegistro" action="">
-          <input type="email" placeholder="ingresa tu email" id="emailRegistro" required/>
-          <input type="password" placeholder="ingresa tu contraseña" id="contraseñaRegistro" required/>
-          <p id="textoMensaje" style="display: none; color: white; font-weight: bold;">Todos los campos son requeridos</p>
-          <input id="btn1" type="submit" value="Registrate" style="cursor: pointer;"/>
-        </form>
-        <p id="textoRegistro" class="pepito">Gracias por registrarte!</p>
-        <a id="btnIrALogin" href="logueo.html">Ir al login</a>
-        <p id="mensaje"></p>
+      <div style="display: flex">
+        <div class="bgImgRegistro" style="height: 100vh; width: 100%"></div>
+        <div
+          style="
+            display: flex;
+            height: 100vh;
+            width: 700px;
+            background-color: white;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgb(0 0 0 / 50%);
+          "
+        >
+          <div class="card">
+            <form
+              id="formRegistro"
+              action=""
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+              "
+            >
+              <h2 style="text-align: center">
+                Ingresa tus datos para registrarte
+              </h2>
+              <input
+                type="email"
+                placeholder="ingresa tu email"
+                id="emailRegistro"
+                required
+              />
+              <input
+                type="password"
+                placeholder="ingresa tu contraseña"
+                id="contraseñaRegistro"
+                required
+              />
+              <p
+                id="textoMensaje"
+                style="display: none; color: red; font-weight: bold"
+              >
+                Todos los campos son requeridos
+              </p>
+              <input
+                id="btn1"
+                type="submit"
+                value="Registrate"
+                style="cursor: pointer; margin: 20px 70px"
+              />
+            </form>
+            <a id="btnIrALogin" href="logueo.html">Ir al login</a>
+          </div>
+        </div>
+      </div>
     </main>
-
 
     <script src="../js/registro.js"></script>
   </body>
 </html>
-

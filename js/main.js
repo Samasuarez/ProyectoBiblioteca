@@ -1,8 +1,8 @@
 const userLogin = JSON.parse(localStorage.getItem("userLogin"));
 
 // validacion contra userLogin
-if(!userLogin) {
-  window.location.href = 'logueo.html'
+if (!userLogin) {
+  window.location.href = "logueo.html";
 }
 
 const productos = [
@@ -183,7 +183,6 @@ const librosEnCarrito = JSON.parse(localStorage.getItem("librosCarrito"));
 const btnDesloguear = document.getElementById("btnDesloguear");
 btnDesloguear.onclick = () => {
   localStorage.removeItem("userLogin");
-  // btnDesloguear.style.display = 'none';
 };
 
 // validar si hay libros adquiridos para no iterar sobre algo undefined
@@ -194,8 +193,6 @@ if (librosAdquiridos) {
     productos.map((prod, index) => {
       // comparar id del libro adquirido contra el id del producto
       if (prod.id === el.id) {
-        // cambiar estado del producto si los id coinciden
-        // prod.estado = "Ver pdf";
         // quitar del array de productos los libros que ya han sido adquiridos
         productos.splice(index, 1);
       }
@@ -230,7 +227,6 @@ const compras = [];
 
 const agregarLibrosAlCarrito = (el, libro) => {
   const arrayStorage = JSON.parse(localStorage.getItem("librosCarrito"));
-  // console.log("arrayLocalStorageCarrito", arrayStorage);
 
   if (arrayStorage) {
     localStorage.setItem(
@@ -242,8 +238,6 @@ const agregarLibrosAlCarrito = (el, libro) => {
   }
   libro.disabled = true;
   libro.firstChild.data = "En carrito";
-
-  // console.log("Libro agregado al carrito", el);
 };
 
 let contenedor = document.querySelector(".contenedor");
@@ -252,7 +246,6 @@ function crearHtml(arr) {
   let html;
   arr.forEach((el, index) => {
     const { nombre, precio, img, id, estado } = el;
-    // console.log("elemento", el);
 
     const btnBloqueado = () => {
       let res = null;
@@ -271,13 +264,16 @@ function crearHtml(arr) {
     };
 
     html = `
-      <div class="card2" style='overflow: hidden; border: 1px solid darkgrey; padding: 5px; border-radius: 8px' onclick=>
-        <img src="../img/${img}" alt="" style='height: 200px; width: 100%; object-fit: cover' >
-          <p>${nombre}</p>
-          <p>$${precio}</p>
-          <button id="libro${id}" ${btnBloqueado()}>${estado}</button>
-        </div>
+    <div class="card mb-4 box-shadow cardLibro">
+      <div class="card-header" style='padding: 0px'>
+        <img class="card-img-top" src="../img/${img}" style='height: 200px; object-fit: cover; overflow: hidden' alt="Card image cap">
       </div>
+      <div class="card-body d-flex flex-column ">
+        <h4 class="card-title pricing-card-title">${nombre}</h4>
+        <p class='mt-auto' >Precio: $${precio}</p>
+        <button id="libro${id}" type="button" class=" btn btn-lg btn-block btn-outline-primary" ${btnBloqueado()}>${estado}</button>
+      </div>
+    </div>
   `;
     contenedor.innerHTML += html;
   });
@@ -285,10 +281,12 @@ function crearHtml(arr) {
 
 crearHtml(productos);
 
+const nombreUsuario = document.getElementById("nombreUsuario");
+nombreUsuario.innerHTML = userLogin.email;
+
 productos.forEach((el) => {
   const { id, pdf } = el;
   let libro = document.getElementById(`libro${id}`);
-  // console.log("Libro", libro);
   if (el.estado === "Comprar") {
     libro.onclick = () => agregarLibrosAlCarrito(el, libro);
   } else {
