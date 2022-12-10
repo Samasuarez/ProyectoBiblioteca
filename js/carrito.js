@@ -6,6 +6,7 @@ if (!userLogin) {
 }
 
 librosCarrito = JSON.parse(localStorage.getItem("librosCarrito"));
+// console.log("librosCarrito", librosCarrito);
 
 let contenedorCarrito = document.querySelector(".contenedorCarrito");
 
@@ -28,11 +29,12 @@ const borrarLibroDelCarrito = (el) => {
     localStorage.removeItem("librosCarrito");
   }
 
-  window.location.reload();
+  window.location.reload()
 };
 
 const finalizarCompra = () => {
   localStorage.removeItem("librosCarrito");
+  // localStorage.setItem("librosAdquiridos", JSON.stringify(librosCarrito))
 
   const librosAdquiridos = JSON.parse(localStorage.getItem("librosAdquiridos"));
 
@@ -65,14 +67,16 @@ function crearHtml() {
 
       totalAPagar = totalAPagar + precio;
 
+      // console.log("nombre", nombre);
+
       html = `
           <div class="tarjetaCarrito" style='overflow: hidden' >
             <img src="../img/${img}" alt="" style='height: 50px; width: 50px; object-fit: cover' >
             <p style='font-weight: bold'>${nombre}</p>
-            <p style='margin-left: auto'>$ ${precio}</p>
-            <span id='delete${id}' class="material-symbols-outlined" style='cursor: pointer; margin-left: 10px; color: red' >
+            <span id='delete${id}' class="material-symbols-outlined" style='cursor: pointer' >
               delete
             </span>
+            <p style='margin-left: auto'>$ ${precio}</p>
           </div>
       `;
       contenedorCarrito.innerHTML += html;
@@ -85,15 +89,15 @@ function crearHtml() {
 
     contenedorCarrito.innerHTML += `
       <div class="tarjetaCarrito" style='overflow: hidden' >
-          <button style='margin-right: auto' type="button" class="btn btn-lg btn-block btn-danger" onclick="limpiarCarrito()">Cancelar compra</button>
-          <button style='margin-left: auto' type="button" class="btn btn-lg btn-block btn-outline-primary" onclick="finalizarCompra()" >Finalizar compra</button>
+          <button style='margin-right: auto' onclick="limpiarCarrito()" >Cancelar compra</button>
+          <button style='margin-left: auto' onclick="finalizarCompra()" >Finalizar compra</button>
       </div>`;
   }
 }
 
 crearHtml();
 
-if (librosCarrito) {
+if(librosCarrito){
   librosCarrito.forEach((el) => {
     const { id, pdf } = el;
     let libro = document.getElementById(`delete${id}`);

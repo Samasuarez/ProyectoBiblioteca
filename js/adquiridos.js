@@ -14,16 +14,12 @@ function crearHtml(arr) {
   let html;
   arr.forEach((el) => {
     const { nombre, img, id } = el;
-    
+
     html = `
-        
-        <div class="card mb-4 box-shadow cardLibro">
-          <div class="card-header" style='padding: 0px'>
-            <img class="card-img-top" src="../img/${img}" style='height: 200px; object-fit: cover; overflow: hidden' alt="Card image cap">
-          </div>
-          <div class="card-body d-flex flex-column ">
-            <h4 class="card-title pricing-card-title">${nombre}</h4>
-            <button id="libro${id}" type="button" class="mt-auto btn btn-lg btn-block btn-outline-primary" >Ver pdf</button>
+        <div class="card2" style='overflow: hidden; border: 1px solid darkgrey; padding: 5px; border-radius: 8px' onclick=>
+          <img src="../img/${img}" alt="" style='height: 200px; width: 100%; object-fit: cover' >
+            <p>${nombre}</p>
+            <button id="libro${id}" >Ver pdf</button>
           </div>
         </div>
     `;

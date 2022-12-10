@@ -1,24 +1,10 @@
 main {
   font-family: Arial, Helvetica, sans-serif;
 }
-
-.navbarStyles {
-  background-color: blanchedalmond;
-  position: fixed;
-  width: 100%;
-  z-index: 1000;
-}
 .bgImgContacto {
   min-height: 100%;
-  background-image: url("../img/biblioteca.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border: none !important;
-}
-.bgImgRegistro {
-  min-height: 100%;
   background-image: url("../img/imgPrincipal.jpg");
+  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -38,52 +24,35 @@ main {
 .contenedor {
   display: inline-grid;
   grid-auto-columns: auto;
-  margin: 130px auto 0;
+  margin: 0 auto;
   grid-template-areas: "card2 card2 card2 card2 card2  ";
 }
 .card2 {
-  position: relative;
   margin: 10px;
+
   width: 200px;
   height: 350px;
-  overflow: hidden;
-  border: 1px solid darkgrey;
-  border-radius: 8px;
-}
-
-.cardLibro{
-  width: 250px;
-  height: 400px;
-  margin: 10px;
-  /* width: 200px; */
-  /* height: 460px; */
-  /* padding: 5px; */
-}
-.btnCardLibro {
-  position: absolute;
-  width: 100%;
-  bottom: 5px;
 }
 .textoFormu {
   display: flex;
 }
-/* .card {
+.card {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
   align-content: center;
-} */
+}
 
 form {
   width: 270px;
-  /* border: 1px solid; */
+  border: 1px solid;
   padding: 20px;
-  /* background-color: rgb(47, 79, 79); */
+  background-color: rgb(47, 79, 79);
   opacity: 0.6;
-  /* border-radius: 8px; */
-  /* margin: calc(50vh - 220px); */
+  border-radius: 8px;
+  margin: calc(50vh - 220px);
 }
 
 .card form input {
@@ -114,7 +83,6 @@ form {
   min-height: 200px;
   background-color: white;
   padding: 30px;
-  margin-top: 50px;
 }
 
 .tarjetaCarrito {

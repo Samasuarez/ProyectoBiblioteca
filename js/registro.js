@@ -1,4 +1,4 @@
-document.body.style.margin = 0;
+// const registro = document.getElementsByClassName(".card");
 const emailReg = document.getElementById("emailRegistro");
 const passwordReg = document.getElementById("contraseñaRegistro");
 const resgistrarme = document.getElementById("btn1");
@@ -9,22 +9,28 @@ const usuariosRegistrados = JSON.parse(
 );
 
 // variables de mensajes de alerta
-const msjRegistroExitoso = "Usuario registrado!";
-const msjUsuarioExistente = "Ya hay un usuario registrado con ese email";
-const msjCamposObligatorios = "Ambos campos son obligatorios";
+const msjRegistroExitoso = 'Usuario registrado!';
+const msjUsuarioExistente = 'Ya hay un usuario registrado con ese email';
+// console.log(registro);
 let usuarios = [];
-
 if (localStorage.getItem("usuarios")) {
   usuarios = JSON.parse(localStorage.getItem("usuarios"));
 } else {
   usuarios = [];
 }
 
-const manejoAlerta = (textoAlerta, display, color) => {
+class Usuario {
+  constructor(usuario, email, password) {
+    this.usuario = usuario;
+    this.email = email;
+    this.password = password;
+  }
+}
+
+const manejoAlerta = (textoAlerta, display) => {
   textoRegistro.style.display = display;
-  textoRegistro.style.color = color;
   textoRegistro.innerHTML = textoAlerta;
-};
+}
 
 const capturarDatosRegistro = () => {
   // capturar datos de los input
@@ -37,31 +43,25 @@ const capturarDatosRegistro = () => {
       // validar que no hay un usuario registrado con el email ingresado
       usuariosRegistrados.map((usuario) => {
         if (usuario.email === registroData.email) {
-          manejoAlerta(msjUsuarioExistente, "block", "red");
+          manejoAlerta(msjUsuarioExistente, 'block');
           usuarioYaLogueado = true;
         }
       });
 
       if (!usuarioYaLogueado) {
-        manejoAlerta(msjRegistroExitoso, "block", "green");
-        localStorage.setItem(
-          "usuariosRegistrados",
-          JSON.stringify([...usuariosRegistrados, registroData])
-        );
+        manejoAlerta(msjRegistroExitoso, 'block');
+        localStorage.setItem('usuariosRegistrados', JSON.stringify([...usuariosRegistrados, registroData]));
       }
+      
     } else {
-      manejoAlerta(msjRegistroExitoso, "block", "green");
-      localStorage.setItem(
-        "usuariosRegistrados",
-        JSON.stringify([registroData])
-      );
+      manejoAlerta(msjRegistroExitoso, 'block');
+      localStorage.setItem('usuariosRegistrados', JSON.stringify([registroData]));
     }
-  } else {
-    manejoAlerta(msjCamposObligatorios, "block", "red");
   }
   console.log("registroData", registroData);
 };
 
+// resgistrarme.onclick = () => guardarLS("localStorage");
 resgistrarme.onclick = () => capturarDatosRegistro();
 
 var form = document.getElementById("formRegistro");
