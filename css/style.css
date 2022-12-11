@@ -136,3 +136,35 @@ form {
   margin: 0;
   padding: 10px 0;
 }
+@media only screen and (max-width: 1120px) {
+  .contenedor{
+  display: grid;
+  grid-template-columns: 1fr ;
+  grid-template-rows: auto auto auto auto auto;
+  grid-template-areas:
+  "card"
+  "card"
+  "card"
+ ;}
+}
+@media only screen and (max-width: 420px){
+  /* .flex {
+    display: flex;
+    justify-content: center;
+  } */
+  .bg-carrito {
+  background-color: rgb(238 238 238);
+  /* padding: 50px 100px; */
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.contenedorCarrito{
+ display: grid;
+ display: grid;
+ grid-template-columns: 1fr ;
+ grid-template-rows: auto auto auto auto auto;
+ grid-template-areas:
+ "tarjetaCarrito"
+ ;
+}}
